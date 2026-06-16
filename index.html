@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rithik Goud</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Inter, sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,.15), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(255,0,255,.15), transparent 30%);
+    filter: blur(50px);
+}
+
+.container{
+    z-index:2;
+    max-width:700px;
+    padding:20px;
+}
+
+h1{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.tag{
+    color:#9ca3af;
+    margin-bottom:30px;
+    font-size:1.1rem;
+}
+
+.status{
+    display:inline-block;
+    padding:10px 18px;
+    border:1px solid #333;
+    border-radius:999px;
+    background:#111;
+    margin-bottom:25px;
+}
+
+p{
+    color:#cfcfcf;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.highlight{
+    color:#00e5ff;
+}
+
+.footer{
+    margin-top:40px;
+    color:#666;
+    font-size:.9rem;
+}
+
+.cursor{
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+    <div class="status">🚧 Building Something Cool</div>
+
+    <h1>Rithik Goud<span class="cursor">_</span></h1>
+
+    <div class="tag">
+        Product • Payments • Tech • Curious Human
+    </div>
+
+    <p>
+        This website is currently in <span class="highlight">developer mode</span>.
+        New features, projects, ideas, experiments, and occasional chaos are being deployed.
+    </p>
+
+    <br>
+
+    <p>
+        Check back soon. Something better than a LinkedIn profile is loading...
+    </p>
+
+    <div class="footer">
+        © 2026 rithikgoud.com
+    </div>
+
+</div>
+
+</body>
+</html>
