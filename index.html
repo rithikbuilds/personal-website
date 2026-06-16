@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,134 +13,280 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Space Grotesk',sans-serif;
-    background:#030303;
-    color:white;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    overflow:hidden;
-    position:relative;
+font-family:'Space Grotesk',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
 }
 
-body::before{
-    content:"";
-    position:absolute;
-    width:900px;
-    height:900px;
+/* Background */
 
-    background:
-    radial-gradient(circle,
-    rgba(59,130,246,.25),
-    rgba(56,189,248,.15),
-    transparent 70%);
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+overflow:hidden;
+}
 
-    filter:blur(80px);
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(140px);
+animation:float 15s ease-in-out infinite;
+}
+
+.blob1{
+width:500px;
+height:500px;
+background:#2563eb;
+top:-100px;
+left:-100px;
+opacity:.25;
+}
+
+.blob2{
+width:450px;
+height:450px;
+background:#0ea5e9;
+bottom:-150px;
+right:-100px;
+opacity:.20;
+animation-delay:4s;
+}
+
+.blob3{
+width:350px;
+height:350px;
+background:#7c3aed;
+top:40%;
+left:50%;
+opacity:.12;
+animation-delay:2s;
+}
+
+@keyframes float{
+0%,100%{
+transform:translate(0,0);
+}
+50%{
+transform:translate(80px,-60px);
+}
+}
+
+/* Sections */
+
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:80px 25px;
 }
 
 .container{
-    position:relative;
-    z-index:2;
-    max-width:850px;
-    padding:30px;
+max-width:1000px;
+width:100%;
+text-align:center;
 }
 
+/* Hero */
+
 .badge{
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:999px;
-    border:1px solid rgba(96,165,250,.25);
-    background:rgba(96,165,250,.08);
-    color:#93c5fd;
-    margin-bottom:30px;
-    font-size:0.9rem;
+display:inline-block;
+padding:10px 20px;
+border-radius:999px;
+background:rgba(59,130,246,.12);
+border:1px solid rgba(59,130,246,.25);
+color:#93c5fd;
+margin-bottom:30px;
 }
 
 h1{
-    font-size:clamp(3.5rem,10vw,7rem);
-    font-weight:700;
-    line-height:1;
+font-size:clamp(4rem,10vw,8rem);
+font-weight:700;
+line-height:1;
+margin-bottom:20px;
 
-    background:linear-gradient(
-    90deg,
-    #ffffff,
-    #60a5fa,
-    #38bdf8
-    );
+background:linear-gradient(
+90deg,
+#ffffff,
+#60a5fa,
+#38bdf8
+);
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .cursor{
-    animation:blink 1s infinite;
+animation:blink 1s infinite;
 }
 
 @keyframes blink{
-    50%{
-        opacity:0;
-    }
+50%{
+opacity:0;
+}
+}
+
+.tagline{
+font-size:1.4rem;
+color:#d1d5db;
+margin-bottom:25px;
 }
 
 .role{
-    margin-top:15px;
-    color:#60a5fa;
-    text-transform:uppercase;
-    letter-spacing:3px;
-    font-size:13px;
-}
-
-.subtitle{
-    margin-top:18px;
-    color:#9ca3af;
-    font-size:1rem;
+color:#60a5fa;
+letter-spacing:3px;
+text-transform:uppercase;
+font-size:13px;
+margin-bottom:25px;
 }
 
 .description{
-    margin-top:35px;
-    color:#d1d5db;
-    line-height:1.9;
-    font-size:1.08rem;
+max-width:800px;
+margin:auto;
+line-height:1.9;
+font-size:1.1rem;
+color:#bfbfbf;
 }
 
 .highlight{
-    color:#60a5fa;
+color:#60a5fa;
+font-weight:600;
 }
 
-.social{
-    margin-top:40px;
+.scroll{
+margin-top:60px;
+font-size:1rem;
+color:#60a5fa;
+animation:bounce 2s infinite;
 }
 
-.social a{
-    color:#60a5fa;
-    text-decoration:none;
-    margin:0 15px;
-    transition:.3s;
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(12px);
+}
 }
 
-.social a:hover{
-    color:white;
-    text-shadow:0 0 20px #60a5fa;
+/* Cards */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:50px;
 }
+
+.card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:24px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#60a5fa;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.3rem;
+}
+
+.card p{
+color:#bdbdbd;
+line-height:1.7;
+}
+
+.section-title{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.section-text{
+max-width:800px;
+margin:auto;
+line-height:1.9;
+color:#cfcfcf;
+}
+
+/* Footer */
 
 .footer{
-    margin-top:50px;
-    color:#6b7280;
-    font-size:0.9rem;
+padding:80px 25px;
+text-align:center;
+}
+
+.socials{
+margin-top:30px;
+}
+
+.socials a{
+color:#60a5fa;
+text-decoration:none;
+margin:0 15px;
+font-size:1rem;
+transition:.3s;
+}
+
+.socials a:hover{
+color:white;
+text-shadow:0 0 15px #60a5fa;
+}
+
+.footer-text{
+margin-top:40px;
+color:#666;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+h1{
+font-size:4rem;
+}
+
+.tagline{
+font-size:1.1rem;
+}
+
+.section-title{
+font-size:2.2rem;
+}
+
 }
 
 </style>
 </head>
 
 <body>
+
+<div class="bg">
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+</div>
+
+<!-- HERO -->
+
+<section>
 
 <div class="container">
 
@@ -157,35 +302,182 @@ rithikgoud<span class="cursor">_</span>
 FROM INDIA 🇮🇳
 </div>
 
-<div class="subtitle">
-Flywire • Payments • SaaS • Manufacturing • Defence • Automobiles
+<div class="tagline">
+Curious to Build. Curious to Scale. Curious to Learn.
 </div>
 
 <div class="description">
 
 Currently working at <span class="highlight">Flywire</span>, helping simplify global payments and cross-border transactions.
 
-Curious to learn, build, and understand how products, businesses, and industries scale.
+I'm fascinated by how products, businesses and industries scale.
 
-Interested in SaaS, fintech, manufacturing, automobiles, defence, technology, and the systems that power them.
+Interested in SaaS, fintech, manufacturing, automobiles, defence, AI, technology and the systems that power them.
 
 Building my corner of the internet.
 
-Projects, experiments, thoughts, and a few ambitious ideas are coming soon.
+Projects, experiments, ideas and occasional chaos coming soon.
 
 </div>
 
-<div class="social">
+<div class="scroll">
+↓ scroll
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+About
+</h2>
+
+<p class="section-text">
+
+Engineer. Operator. Builder.
+
+Currently working in global payments while exploring technology, product thinking, AI, business strategy and industrial ecosystems.
+
+Always curious about how great companies are built and how complex systems scale.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- INTERESTS -->
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Current Interests
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🌍 Payments</h3>
+<p>Cross-border payments, fintech infrastructure and global commerce.</p>
+</div>
+
+<div class="card">
+<h3>🚀 SaaS</h3>
+<p>Software businesses, product-led growth and scalable platforms.</p>
+</div>
+
+<div class="card">
+<h3>🏭 Manufacturing</h3>
+<p>Industrial systems, supply chains and modern production.</p>
+</div>
+
+<div class="card">
+<h3>🚗 Automobiles</h3>
+<p>EVs, mobility, engineering and transportation technology.</p>
+</div>
+
+<div class="card">
+<h3>🛡️ Defence</h3>
+<p>Defence technology, aerospace and strategic industries.</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI</h3>
+<p>AI products, automation and intelligent systems.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BUILDING -->
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Currently Building
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>💡 Ideas</h3>
+<p>Exploring opportunities across fintech, SaaS and industrial sectors.</p>
+</div>
+
+<div class="card">
+<h3>📊 Learning</h3>
+<p>Understanding technology, markets, operations and scale.</p>
+</div>
+
+<div class="card">
+<h3>⚙️ Projects</h3>
+<p>Experiments, side projects and things that may eventually become real.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<h2>
+Website.exe is still loading...
+</h2>
+
+<div class="socials">
 <a href="#">GitHub</a>
 <a href="#">LinkedIn</a>
 <a href="#">Email</a>
 </div>
 
-<div class="footer">
-building • learning • scaling
+<div class="footer-text">
+Building • Learning • Scaling • From India 🇮🇳
 </div>
 
 </div>
+
+<script>
+
+const text =
+"building products. learning constantly. thinking long term.";
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < text.length){
+
+document.title =
+text.substring(0,i+1);
+
+i++;
+
+setTimeout(typeWriter,100);
+
+}
+
+}
+
+typeWriter();
+
+</script>
 
 </body>
 </html>
